@@ -160,7 +160,7 @@ start, end, start_pos, goal_pos = initiate_icons()
 run_algorithm_button = Button((1250, 25, 175, 50), light_blue, "Run Algorithm", black)
 drop_down_button = Button((100, 25, 220, 50), light_grey, "Choose Algorithm", black)
 # drop-down menu buttons
-astar_button = Button((100, 75, 220, 50), light_grey, "Pathfinder Visualization", black, True)
+astar_button = Button((100, 75, 220, 50), light_grey, "A*", black, True)
 dijkstra_button = Button((100, 125, 220, 50), light_grey, "dijkstra", black, True)
 
 
@@ -197,7 +197,7 @@ def game_menu():
 
             if event.type == pg.MOUSEBUTTONDOWN:
                 if run_algorithm_button.is_over(button_pos):
-                    if drop_down_button.text == 'Pathfinder Visualization' or drop_down_button.text == 'Choose Algorithm':
+                    if drop_down_button.text == 'A*' or drop_down_button.text == 'Choose Algorithm':
                         algorithm.a_star(initial_node, goal_node, board, screen)
                     if drop_down_button.text == 'dijkstra':
                         algorithm.dijkstra(initial_node, goal_node, board, screen)
@@ -209,7 +209,7 @@ def game_menu():
                 if not drop_down_button.is_over(button_pos) and not astar_button.dropdown:
                     close_drop_down_menu()
                 if astar_button.is_over(button_pos):
-                    drop_down_button.text = 'Pathfinder Visualization'
+                    drop_down_button.text = 'A*'
                     astar_button.dropdown = True
                     close_drop_down_menu()
                 if dijkstra_button.is_over(button_pos):
